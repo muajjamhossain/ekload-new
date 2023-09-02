@@ -114,6 +114,10 @@
                                     </div>
                                 </div>
                             </div>
+
+                        @else
+                        <div class="check-notic-list" id="note"> </div>
+                        <div class="check-notic-list" id="confirmation"> </div>
                         @endif
 
 
@@ -164,10 +168,15 @@
         </div>
     </section>
     @php
-        $noteData = "$basic->basic_note ";
-        $encodedNote = json_encode($noteData);
 
-        $confirmData = "$basic->basic_confirmation ";
+        $noteData = "";
+        $confirmData = "";
+        if($pac->pd_check == '1'){
+            $noteData = "$basic->basic_note ";
+            $confirmData = "$basic->basic_confirmation ";
+        }
+
+        $encodedNote = json_encode($noteData);
         $encodedConfirm = json_encode($confirmData);
     @endphp
 
@@ -214,6 +223,7 @@
                                 $('#applyCoupon').addClass('d-none');
                                 $('#couponCode').addClass('d-none');
                                 $("#coupon").attr('required',false);
+                                $('#availableCoupon').addClass('d-none');
                             }
                             $("#paybleRate").text(data.amount);
                             $("#paybleAmount").val(data.amount);

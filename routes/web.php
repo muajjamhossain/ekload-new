@@ -55,10 +55,10 @@ Route::get('/clear-cache', function() {
 });
 
 
-Route::get( 'pay', [UddoktapayController::class, 'show'] )->name( 'uddoktapay.payment-form' );
-Route::post( 'pay', [UddoktapayController::class, 'pay'] )->name( 'uddoktapay.pay' );
-Route::get( 'success', [UddoktapayController::class, 'success'] )->name( 'uddoktapay.success' );
-Route::get( 'cancel', [UddoktapayController::class, 'cancel'] )->name( 'uddoktapay.cancel' );
+// Route::get( 'pay', [UddoktapayController::class, 'show'] )->name( 'uddoktapay.payment-form' );
+// Route::post( 'pay', [UddoktapayController::class, 'pay'] )->name( 'uddoktapay.pay' );
+// Route::get( 'success', [UddoktapayController::class, 'success'] )->name( 'uddoktapay.success' );
+// Route::get( 'cancel', [UddoktapayController::class, 'cancel'] )->name( 'uddoktapay.cancel' );
 
 Route::group(['controller'=> WebsiteController::class], function () {
     Route::get('/login', 'login')->name('login');
@@ -79,6 +79,8 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::post('/order/package/send', 'pacInfo')->name('order_package_info_send');
     Route::post('apply/coupon', 'applyCoupon')->name('applyCoupon');
     Route::post('/package/complete', 'pakInfoUpdate')->name('pac_info_update');
+    Route::get( '/success', 'success')->name( 'pay.success' );
+    Route::get( '/cancel', 'cancel' )->name( 'pay.cancel' );
 });
 
 Route::group(['prefix' => 'dashboard'], function () {
