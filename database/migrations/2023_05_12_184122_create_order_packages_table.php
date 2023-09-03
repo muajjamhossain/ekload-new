@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('pac_status')->default(1);
             $table->softDeletes();
             $table->timestamps();
+
         });
     }
 

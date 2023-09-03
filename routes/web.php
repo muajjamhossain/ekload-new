@@ -1,5 +1,8 @@
 <?php
 
+use App\Library\SMTP;
+use App\Library\Exception;
+use App\Library\PHPMailer;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\TagController;
@@ -13,6 +16,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\MailerController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PackageController;
@@ -60,6 +64,9 @@ Route::get('/clear-cache', function() {
 // Route::get( 'success', [UddoktapayController::class, 'success'] )->name( 'uddoktapay.success' );
 // Route::get( 'cancel', [UddoktapayController::class, 'cancel'] )->name( 'uddoktapay.cancel' );
 
+Route::get("/send-email", [MailerController::class, "composeEmail"])->name("send-email");
+
+
 Route::group(['controller'=> WebsiteController::class], function () {
     Route::get('/login', 'login')->name('login');
     Route::get('/sign-up', 'signup')->name('sign-up');
@@ -81,6 +88,56 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::post('/package/complete', 'pakInfoUpdate')->name('pac_info_update');
     Route::get( '/success', 'success')->name( 'pay.success' );
     Route::get( '/cancel', 'cancel' )->name( 'pay.cancel' );
+    Route::get( '/ipn', 'ipn' )->name( 'pay.ipn' );
+
+
+
+
+
+    Route::get('/mail', function(){
+
+
+        $mail = new PHPMailer(true); // Passing true enables exceptions
+
+        $mail->isSMTP(); // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true; // Enable SMTP authentication
+        $mail->Username = 'php1206724@gmail.com';
+        $mail->Password = 'mttstsebqfvnfjkx';
+        $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587; // TCP port to connect to
+
+
+
+        $senderEmail = 'php1206724@gmail.com';
+        $subject = 'Your Subject';
+
+        $mail->setFrom($senderEmail);
+        $mail->Subject = $subject;
+        $mail->isHTML(true); // Set email format to HTML
+
+        $recipients =  ['kan614760@gmail.com', 'zakircseiu@gmail.com', 'muajjam.imu@gmail.com'];
+
+//         foreach ($recipients as $recipient) {
+//             $to = $recipient;
+//             $message = "Hello, $recipient! This is the content of the email."; // Customize the email content
+
+//             $mail->addAddress($to);
+//             $mail->Body = $message;
+
+//             try {
+//                 $mail->send();
+//                 echo "Email sent to $to<br>";
+//             } catch (Exception $e) {
+//                 echo "Failed to send email to $to. Error: {$mail->ErrorInfo}<br>";
+//             }
+
+//             $mail->clearAddresses();
+//         }
+
+
+
+    });
 });
 
 Route::group(['prefix' => 'dashboard'], function () {

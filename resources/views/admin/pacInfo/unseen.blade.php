@@ -56,15 +56,16 @@
                             <table id="alltableinfo" class="table table-bordered custom_table mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>User Phone</th>
-                                        <th>buy Pac no</th>
+                                        {{-- <th>Name</th>
+                                        <th>User Phone</th> --}}
+                                        {{-- <th>buy Pac no</th>
                                         <th>Oparetor</th>
                                         <th>Package</th>
                                         <th>Price</th>
-                                        <th>Last No</th>
                                         <th>gateway</th>
-                                        <th>Check</th>
+                                        <th>Check</th> --}}
+                                        <th>Tranjection</th>
+                                        <th>All Data</th>
                                         <th>Time</th>
                                         <th>Manage</th>
                                     </tr>
@@ -72,7 +73,7 @@
                                 <tbody>
                                     @foreach($all as $data)
                                     <tr>
-                                        <td>{{$data->userInfo->name?? 'Guest'}}</td>
+                                        {{-- <td>{{$data->userInfo->name?? 'Guest User'}}</td>
                                         <td>{{$data->userInfo->phone?? 'N/A'}}</td>
                                         <td>
                                         @if($data->pacInfo->pd_operator=='GrameenPhone')
@@ -111,15 +112,17 @@
                                         <td>{{$data->pacInfo->pd_operator}}</td>
                                         <td>{{$data->pacInfo->pd_title}}</td>
                                         <td>{{$data->pacInfo->pd_regular}}</td>
-                                        <td>{{$data->pac_last}}</td>
                                         <td>{{$data->pac_gateway}}</td>
                                         @if($data->pacInfo->pd_check!=1)
                                         <td>Buy</td>
                                         @else
                                         <td>Check</td>
-                                        @endif
+                                        @endif --}}
+                                        <td>{{ $data->tr_status }}</td>
+                                        <td><span class="badge bg-secondary" id="p1">{{ $data->pacDetails }}</span></td>
                                         <td>{{date('h-i-a',strtotime($data->created_at))}}</td>
                                         <td>
+                                            <button class="border-0" onclick="copyToClipboard('#p1')"><i class="fa fa-clipboard text-success fa-lg border-0"></i></button>
                                           @if($data->pac_publish==1)
                                               <a href="#" title="Uncomplite" id="unpublish" data-toggle="modal" data-target="#unPubModal" data-id="{{$data->pac_id}}"><i class="fa fa-check-square text-success fa-lg"></i></a>
                                           @else
@@ -132,6 +135,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+
+                            <br/><br/><input type="text" placeholder="Paste here for test" />
                         </div>
                     </div>
                 </div>
@@ -215,3 +221,18 @@
 </div>
 
 @endsection
+
+
+@push('customScripts')
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
+    <script>
+        alert('ok');
+        function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        }
+    </script>
+@endpush
