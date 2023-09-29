@@ -107,7 +107,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card mt-3">
+              {{-- <div class="card mt-3">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
@@ -130,7 +130,7 @@
                     <span class="text-secondary">ekload</span>
                   </li>
                 </ul>
-              </div>
+              </div> --}}
             </div>
             <div class="col-md-8">
               <div class="card mb-3">
@@ -141,6 +141,16 @@
                     </div>
                     <div class="col-sm-9 text-secondary">
                         {{ Auth::user()->name }}
+                    </div>
+                  </div>
+                  <hr class="p-1 m-1">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Point & Reward</h6>
+                    </div>
+                    <div class="col-sm-9 text-danger">
+                       <span class="badge bg-success">{{ Auth::user()->point }}</span>
+                       <span class="badge bg-info">{{ Auth::user()->reward }}</span>
                     </div>
                   </div>
                   <hr class="p-1 m-1">

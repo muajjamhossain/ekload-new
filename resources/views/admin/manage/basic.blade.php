@@ -2,15 +2,7 @@
 @section('content')
 
 @push('customCss')
-    <style>
-        .tox:not([dir=rtl]) .tox-statusbar__branding {
-            display: none;
-        }
 
-        .tox .tox-notification--warn, .tox .tox-notification--warning {
-            display: none;
-        }
-    </style>
 @endpush
 
 

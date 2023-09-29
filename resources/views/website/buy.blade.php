@@ -86,38 +86,35 @@
                     <div class="col-md-6 check-padding-small-device">
 
                         @if ($pac->pd_check == '1')
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="check-notic-left">
-                                        <div class="text-center check-notic-title">
-                                            <h3>Notes</h3>
-                                        </div>
-                                        <div class="check-notic-list" id="note">
-                                            {{-- <ul>
-                                                <li class="notic-text">অনুগ্রহপূর্বক আপনার লগইন কৃত নাম্বারটি লাইভ চ্যাটে সেন্ড করুন। ।</li>
-                                            </ul> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-3 card">
-                                <div class="card-body">
-                                    <div class="check-notic-left">
-                                        <div class="text-center check-notic-title">
-                                            <h3>Confirmation</h3>
-                                        </div>
-                                        <div class="check-notic-list" id="confirmation">
-                                            {{-- <ul>
-                                                <li class="notic-text">অনুগ্রহপূর্বক আপনার লগইন কৃত নাম্বারটি লাইভ চ্যাটে সেন্ড করুন। ।</li>
-                                            </ul> --}}
+
+                            @if($basic->basic_note != null)
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="check-notic-left">
+                                            <div class="text-center check-notic-title">
+                                                <h3>Notes</h3>
+                                            </div>
+                                            <div class="check-notic-list" id="note"> </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
+
+                            @if($basic->basic_confirmation != null)
+                                <div class="mt-3 card">
+                                    <div class="card-body">
+                                        <div class="check-notic-left">
+                                            <div class="text-center check-notic-title">
+                                                <h3>Confirmation</h3>
+                                            </div>
+                                            <div class="check-notic-list" id="confirmation">{{ $basic->basic_confirmation }} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
 
                         @else
-                        <div class="check-notic-list" id="note"> </div>
-                        <div class="check-notic-list" id="confirmation"> </div>
+
                         @endif
 
 
@@ -135,12 +132,12 @@
                                             <input type="text" class="text-center" name="coupon" id="coupon" placeholder="নাম্বার">
                                             <input type="hidden" name="paybleAmount" value="" id="paybleAmount">
                                         </span>
-                                        <button type="submit" id="applyCoupon" class="btn-sm btn-success d-none">Apply Coupon</button>
-                                        <button type="button" id="availableCoupon" class="btn-sm btn-success">Available Coupon</button>
+                                        <button type="submit" id="applyCoupon" class="btn-sm btn-success d-none">কুপন জমা দিন</button>
+                                        <button type="button" id="availableCoupon" class="btn-sm btn-success">কুপন ব্যবহার করুন</button>
                                         <div id="message"></div>
 
                                     </div>
-                                    @foreach ($allGateway as $gateway)
+                                    {{-- @foreach ($allGateway as $gateway)
                                         <div class="mt-4 text-center team-middle-content">
                                             <div class="team-icon-number">
                                                 <a href="{{ $gateway->pg_url }}">
@@ -151,7 +148,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    @endforeach --}}
 
                                 </div>
                             </div>
@@ -160,7 +157,8 @@
                     <div class="mt-4 text-center col-md-12">
                         <div class="term-btn">
                             {{-- <a href="#">Next</a> --}}
-                            <button type="submit" class="btn btn-md btn-danger">Next</button>
+                            <input type="checkbox" id="checkme"/> Agree <br/>
+                            <button type="submit" class="btn btn-md btn-danger" id="sendNewSms" >Pay Now</button>
                         </div>
                     </div>
                 </div>
@@ -172,8 +170,8 @@
         $noteData = "";
         $confirmData = "";
         if($pac->pd_check == '1'){
-            $noteData = "$basic->basic_note ";
-            $confirmData = "$basic->basic_confirmation ";
+            $noteData = "$basic->basic_note";
+            $confirmData = "$basic->basic_confirmation";
         }
 
         $encodedNote = json_encode($noteData);
@@ -184,7 +182,20 @@
         <script>
             $(document).ready(function() {
 
-                var rawNote = <?php echo $encodedConfirm; ?>;
+                var checker = document.getElementById('checkme');
+                var sendbtn = document.getElementById('sendNewSms');
+                sendbtn.disabled = true;
+                sendbtn.style.cursor = 'wait';
+
+                checker.onchange = function() {
+                    // document.getElementById('sendNewSms').removeAttribute('disabled');
+                    sendbtn.disabled = !this.checked;
+                    sendbtn.style.cursor = 'pointer';
+                };
+
+
+
+                var rawNote = <?php echo $encodedNote; ?>;
                 var formattedNote = rawNote.replace(/\\n/g, '<br>');
                 document.getElementById("note").innerHTML = formattedNote;
 

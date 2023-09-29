@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="" name="description" />
-    <meta content="Uzzal" name="author" />
+    <meta content="Muajjam" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard</title>
 
-    {{ asset('assets/website') }}/
     <link rel="shortcut icon" href="{{ asset('assets/admin') }}/assets/images/favicon_1.ico">
     <link href="{{ asset('assets/admin') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/admin') }}/assets/css/datatables.min.css" rel="stylesheet" type="text/css" />

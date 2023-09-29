@@ -27,8 +27,8 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @if(@Auth::check())
-                                            <a style="color: #3f4754;" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                             <a style="color: #3f4754;" class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                            <a style="color: #3f4754;" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 style="display: none;">
@@ -67,7 +67,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @if(@Auth::check())
                                         <a style="color: #3f4754;" class="dropdown-item" href="{{ route('profile') }}">Profile</a>
-                                        <a style="color: #3f4754;" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Login</a>
+                                        <a style="color: #3f4754;" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             style="display: none;">

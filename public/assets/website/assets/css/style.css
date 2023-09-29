@@ -372,6 +372,18 @@ label {
 /* .slider-bg-1 {background-image: url(../img/slider/slider-bg-1.jpg);}
 .slider-bg-2 {background-image: url(../img/slider/slider-bg-2.jpg);} */
 
+@media only screen and (max-width: 600px){
+    .single-slider{
+        background-size: fill;
+        height: 70%;
+    }
+
+    .slider-title h2{
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+}
+
 .single-slider {
 	position: relative;
 	background-size: cover;
@@ -486,6 +498,34 @@ img.operator-img{
     background: #52ea0b;
 	cursor: pointer;
 }
+
+
+.tox:not([dir=rtl]) .tox-statusbar__branding {
+    display: none !important;
+}
+
+.tox .tox-notification--warn, .tox .tox-notification--warning {
+    display: none !important;
+}
+
+.tox .tox-notification--warn, .tox .tox-notification--warning {
+    display: none !important;
+}
+.tox .tox-notification--in {
+    display: none !important;
+}
+
+.tox-notification .tox-notification--in .tox-notification--warning{
+    display: none !important;
+}
+
+/* .tox :not(svg):not(rect) {
+    display: none !important;
+} */
+
+/* .tox .tox-statusbar {
+    display: none !important;
+} */
 /*
 ==========================================
     Trending Area Css
