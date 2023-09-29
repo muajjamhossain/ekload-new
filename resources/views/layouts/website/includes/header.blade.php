@@ -23,7 +23,7 @@
                                 <li class="nav-item dropdown">
                                     <a style="color: #3f4754;" class="nav-link dropdown-toggle" href="#"
                                         id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false"> {{@Auth::check()?@Auth::user()->name:'My Account'}}
+                                        aria-expanded="false"> {{@Auth::check()?@Auth::user()->name:'Account'}}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @if(@Auth::check())
@@ -62,7 +62,7 @@
                             <li class="nav-item dropdown">
                                 <a style="color: #3f4754;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{@Auth::check()?@Auth::user()->name:'My Account'}}
+                                    {{@Auth::check()?@Auth::user()->name:'Account'}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @if(@Auth::check())

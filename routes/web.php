@@ -210,8 +210,10 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 
     Route::group(['prefix' => 'package/buy', 'as' => 'package-buy.', 'controller'=> OrderPackageController::class], function () {
-        Route::get('/', 'index')->name('');
+        Route::get('/all', 'index')->name('');
         Route::get('/unseen', 'unseen')->name('');
+        Route::get('/reminder', 'reminder')->name('reminder');
+        Route::post('/reminder', 'reminderSend')->name('reminder.send');
         Route::get('/view/{id}', 'view')->name('');
         Route::post('/softdelete', 'softdelete')->name('');
         Route::post('/publish', 'publish')->name('');

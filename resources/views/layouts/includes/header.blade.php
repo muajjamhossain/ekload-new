@@ -62,7 +62,7 @@
                               </div>
                             </a>
                            <a href="javascript:void(0);" class="list-group-item">
-                            <small> <a href="{{url('dashboard/package/buy')}}">See all notifications</a></small>
+                            <small> <a href="{{url('dashboard/package/buy/all')}}">See all notifications</a></small>
                           </a>
                         </li>
                     </ul>

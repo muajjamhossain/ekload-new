@@ -145,9 +145,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
-
-                            <br /><br /><input type="text" placeholder="Paste here for test" />
                         </div>
                     </div>
                 </div>
@@ -242,7 +239,6 @@
 @push('customScripts')
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
 <script>
-    alert('ok');
         function copyToClipboard(element) {
         var $temp = $("<input>");
         $("body").append($temp);
