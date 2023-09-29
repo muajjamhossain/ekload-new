@@ -14,10 +14,16 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
                         <h3 class="card-title card_top_title"><i class="fa fa-gg-circle"></i> All Package Information</h3>
                     </div>
-                    <div class="text-right col-md-4">
+                    <div class="text-right col-md-7">
+                        <a href="{{url('dashboard/package/GrameenPhone')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> GP</a>
+                        <a href="{{url('dashboard/package/Banglalink')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> BL</a>
+                        <a href="{{url('dashboard/package/Robi')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Robi</a>
+                        <a href="{{url('dashboard/package/Airtel')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Airtel</a>
+                        <a href="{{url('dashboard/package/Talitalk')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Teletalk</a>
+
                         <a href="{{url('dashboard/package/add')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Add Package</a>
                     </div>
                     <div class="clearfix"></div>

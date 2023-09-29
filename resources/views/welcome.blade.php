@@ -71,7 +71,7 @@
                 <div class="col-md-7">
                     @if(Session::has('success_pac'))
                       <div class="alert alert-success alertsuccess" role="alert">
-                         <strong>Successfully!</strong> আপনার সাশ্রয়ী মূল্যে অফার ক্রয়ের মেসেজটি সফলভাবে পাঠানো হয়েছে .
+                         <strong>সাকসেস !</strong> কিছু সময়ের মধ্যে আপনার  প্যাকেজটি পেয়ে যাবেন
                       </div>
                     @endif
                     @if(Session::has('error'))

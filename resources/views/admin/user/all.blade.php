@@ -34,6 +34,7 @@
                                         <th>Phone</th>
                                         <th>Username</th>
                                         <th>Email</th>
+                                        <th>Point & Reward</th>
                                         <th>User Role</th>
                                         <th>Photo</th>
                                         <th>Manage</th>
@@ -46,6 +47,10 @@
                                         <td>{{$data->phone}}</td>
                                         <td>{{$data->username}}</td>
                                         <td>{{$data->email}}</td>
+                                        <td>
+                                            <span class="badge bg-dark ">P- {{ $data->point }}</span>
+                                            <span class="badge bg-dark">R- {{ $data->reward }}</span>
+                                        </td>
                                         <td>{{$data->userRole->role_name}}</td>
                                         <td>
                                             @if($data->photo!='')

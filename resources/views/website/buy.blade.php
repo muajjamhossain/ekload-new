@@ -44,16 +44,16 @@
                                             style="color: red;display: inline-block;padding-bottom: 5px;padding-top: 10px;">Validity:
                                             {{ $pac->pd_validity }} Days</span><br>
                                         <span style="color: red;display: inline-block;margin-bottom: 10px;">{{ $pac->pd_title }}</span>
-                                        <input type="hidden" name="pd_id" value="{{ $pac->pd_id }}"/>
+                                        <input type="hidden" name="pd_id" value="{{ $pac->pd_id }}" id="pd_id"/>
                                     </div>
 
                                     <div class="check-footer">
                                         @if (!Auth::check())
-                                            <span class="check-details-top"><b>আপনি এখন গেস্ট মোড এ আছেন </b></span><br>
+                                            <span class="check-details-top"><b>আপনি এখন গেস্ট মোড অফার ক্রয় করছেন </b></span><br>
                                             <small> <a href="{{ route('login') }}">পয়েন্ট ও রিওয়ার্ড পেতে লগইন করুন</a></small><br>
                                             <span class="check-top-phone">মোবাইল নাম্বার দিন</span><br>
                                             <span class="check-top-input">
-                                                <input type="number" name="withOutAuthenticNumber" placeholder="মোবাইল নাম্বার" @required(true)>
+                                                <input type="text" name="withOutAuthenticNumber" maxlength="11" minlength="11" placeholder="01*********" @required(true)>
                                             </span>
                                         @else
                                             <span class="check-details-top"><b>অফারটি কার জন্য তা নির্বাচন করুন</b></span><br>
@@ -92,7 +92,7 @@
                                     <div class="card-body">
                                         <div class="check-notic-left">
                                             <div class="text-center check-notic-title">
-                                                <h3>Notes</h3>
+                                                <h3>নোটিশ</h3>
                                             </div>
                                             <div class="check-notic-list" id="note"> </div>
                                         </div>
@@ -105,7 +105,7 @@
                                     <div class="card-body">
                                         <div class="check-notic-left">
                                             <div class="text-center check-notic-title">
-                                                <h3>Confirmation</h3>
+                                                <h3>নিশ্চিত হোন</h3>
                                             </div>
                                             <div class="check-notic-list" id="confirmation">{{ $basic->basic_confirmation }} </div>
                                         </div>
@@ -157,8 +157,8 @@
                     <div class="mt-4 text-center col-md-12">
                         <div class="term-btn">
                             {{-- <a href="#">Next</a> --}}
-                            <input type="checkbox" id="checkme"/> Agree <br/>
-                            <button type="submit" class="btn btn-md btn-danger" id="sendNewSms" >Pay Now</button>
+                            <input type="checkbox" id="checkme"/> সম্মত আছি <br/>
+                            <button type="submit" class="btn btn-md btn-danger" id="sendNewSms" >পে করুন</button>
                         </div>
                     </div>
                 </div>
@@ -225,6 +225,7 @@
                         data: {
                             "_token": "{{ csrf_token() }}",
                             coupon: $("#coupon").val(),
+                            pd_id: $("#pd_id").val(),
                             paybleRate: $("#paybleRate").text(),
                         },
                         success: function(data) {

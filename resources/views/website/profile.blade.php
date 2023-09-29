@@ -96,7 +96,13 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    {{-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"> --}}
+
+                    @if(Auth::user()->photo!='')
+                        <img src="{{asset('uploads/users/'.Auth::user()->photo)}}" alt="Admin" class="rounded-circle" width="150">
+                    @else
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    @endif
                     <div class="mt-3">
                       <h4>{{ Auth::user()->name }}</h4>
                       <p class="text-secondary mb-1">Active</p>
@@ -146,10 +152,18 @@
                   <hr class="p-1 m-1">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Point & Reward</h6>
+                      <h6 class="mb-0">Point</h6>
                     </div>
                     <div class="col-sm-9 text-danger">
                        <span class="badge bg-success">{{ Auth::user()->point }}</span>
+                    </div>
+                  </div>
+                  <hr class="p-1 m-1">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Reward</h6>
+                    </div>
+                    <div class="col-sm-9 text-danger">
                        <span class="badge bg-info">{{ Auth::user()->reward }}</span>
                     </div>
                   </div>
@@ -186,7 +200,7 @@
                       <h6 class="mb-0">Status</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        Regular Customer (Active)
+                        Regular Customer ({{ Auth::user()->active_customer == 1? "Active": "inActive" }})
                     </div>
                   </div>
                   <hr class="p-1 m-1">

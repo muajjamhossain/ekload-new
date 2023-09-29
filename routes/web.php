@@ -193,7 +193,7 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 
     Route::group(['prefix' => 'package', 'as' => 'package.', 'controller'=> PackageController::class], function () {
-        Route::get('/', 'index')->name('');
+        Route::get('/{operator?}', 'index')->name('');
         Route::get('/my', 'my')->name('');
         Route::get('/add', 'add')->name('');
         Route::get('/edit/{slug}', 'edit')->name('');

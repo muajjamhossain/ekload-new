@@ -119,7 +119,7 @@
                      <div class="form-group row custom_form_group{{ $errors->has('point') ? ' has-error' : '' }}">
                         <label class="col-sm-3 control-label">Point:<span class="req_star">*</span></label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" name="point" value="{{ @$data ? @$data->pd_point: old('point')}}">
+                          <input type="text" class="form-control" name="point" value="{{ @$data ? @$data->pd_point: 0}}">
                           @if ($errors->has('point'))
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $errors->first('point') }}</strong>
@@ -131,7 +131,7 @@
                     <div class="form-group row custom_form_group{{ $errors->has('validity') ? ' has-error' : '' }}">
                         <label class="col-sm-3 control-label">validity:<span class="req_star">*</span></label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" name="validity" value="{{ @$data ? @$data->pd_validity: old('validity')}}">
+                          <input type="text" class="form-control" name="validity" value="{{ @$data ? @$data->pd_validity:30}}">
                           @if ($errors->has('validity'))
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $errors->first('validity') }}</strong>
@@ -171,7 +171,7 @@
                                     <strong>{{ $errors->first('pic') }}</strong>
                                 </span>
                             @endif
-                            <img id='img-upload'/>
+                            <img id='img-upload' src="{{asset('uploads/package/'.@$data->pd_image)}}" />
                             </div>
                         </div>
 
@@ -228,7 +228,7 @@
                     <div class="form-group row custom_form_group{{ $errors->has('reward') ? ' has-error' : '' }}">
                         <label class="col-sm-3 control-label">Reward:<span class="req_star">*</span></label>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" name="reward" value="{{ @$data ? @$data->pd_reward: old('reward')}}">
+                          <input type="text" class="form-control" name="reward" value="{{ @$data ? @$data->pd_reward: 0}}">
                           @if ($errors->has('reward'))
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $errors->first('reward') }}</strong>
@@ -240,13 +240,13 @@
                     <div class="form-group row custom_form_group">
                         <label class="col-sm-3 control-label">Number Check:</span></label>
                         <div class="col-sm-7">
-                          <input type="checkbox" class="form-control" name="check" value="{{ @$data ? @$data->pd_check: old('check')}}" {{@$data->pd_check==1 ? 'checked': ''}}>
+                          <input type="checkbox" class="form-control" name="check" value="1" {{@$data->pd_check==1 ? 'checked': ''}}>
                         </div>
                     </div>
                     <div class="form-group row custom_form_group">
                         <label class="col-sm-3 control-label">Coupon Enable:</span></label>
                         <div class="col-sm-7">
-                          <input type="checkbox" class="form-control" id="couponAnable" name="coupon" value="{{ @$data ? @$data->pd_coupon: old('coupon')}}" {{@$data->pd_coupon==1 ? 'checked': ''}}>
+                          <input type="checkbox" class="form-control" id="couponAnable" name="coupon" value="1" {{@$data->pd_coupon==1 ? 'checked': ''}}>
                         </div>
                     </div>
 
@@ -278,6 +278,18 @@
         </form>
     </div>
 </div>
+
+
+@php
+
+    $couponExist = 0;
+    if($pac->pd_check == '1'){
+        $noteData = "$basic->basic_note";
+    }
+
+    $encodedNote = json_encode($noteData);
+    $encodedConfirm = json_encode($confirmData);
+@endphp
 
 @push('customScripts')
 <script>
