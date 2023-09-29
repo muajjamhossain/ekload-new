@@ -24,7 +24,7 @@
                         <a href="{{url('dashboard/package/Airtel')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Airtel</a>
                         <a href="{{url('dashboard/package/Talitalk')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Teletalk</a>
 
-                        <a href="{{url('dashboard/package/add')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Add Package</a>
+                        <a href="{{url('dashboard/package/add/product')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-plus-circle"></i> Add Package</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>

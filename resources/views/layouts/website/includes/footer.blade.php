@@ -9,18 +9,22 @@
                             <ul>
                                 <li><a href="{{$social->sm_facebook}}"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="{{$social->sm_youtube}}"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="{{$social->sm_facebook}}"><i class="fab fa-instagram"></i></a></li>
+                                {{-- <li><a href="{{$social->sm_facebook}}"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="{{$social->sm_linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="{{$social->sm_twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{$social->sm_twitter}}"><i class="fab fa-twitter"></i></a></li> --}}
                             </ul>
                         </div>
                         <div class="text-center footer-social-dedia-small-device d-md-none">
                             <ul>
-                                <li><a href="#"><i class="fas fa-power-off"></i></a></li>
+                                {{-- <li><a href="#"><i class="fas fa-power-off"></i></a></li> --}}
                                 <li><a href="{{$social->sm_facebook}}"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="{{$social->sm_linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
-                                <li><a href="#"><i class="fas fa-user"></i></a></li>
+                                {{-- <li><a href="{{$social->sm_linkedin}}"><i class="fab fa-linkedin-in"></i></a></li> --}}
+                                <li><a href="{{$social->sm_youtube}}"><i class="fab fa-youtube"></i></a></li>\
+                                @if(@Auth::check())
+                                    <li><a href="{{ route('profile') }}"><i class="fas fa-user"></i></a></li>
+                                @else
+                                    <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

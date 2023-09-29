@@ -167,8 +167,8 @@
     </section>
     @php
 
-        $noteData = "";
-        $confirmData = "";
+        $noteData = "hello";
+        $confirmData = "hello";
         if($pac->pd_check == '1'){
             $noteData = "$basic->basic_note";
             $confirmData = "$basic->basic_confirmation";
@@ -194,14 +194,17 @@
                 };
 
 
+                var pdCheck = <?php echo $pac->pd_check; ?>;
 
-                var rawNote = <?php echo $encodedNote; ?>;
-                var formattedNote = rawNote.replace(/\\n/g, '<br>');
-                document.getElementById("note").innerHTML = formattedNote;
+                if(pdCheck == 1){
+                    var rawNote = <?php echo $encodedNote; ?>;
+                    var formattedNote = rawNote.replace(/\\n/g, '<br>');
+                    document.getElementById("note").innerHTML = formattedNote;
 
-                var rawConfirm = <?php echo $encodedConfirm; ?>;
-                var formattedConfirm = rawConfirm.replace(/\\n/g, '<br>');
-                document.getElementById("confirmation").innerHTML = formattedConfirm;
+                    var rawConfirm = <?php echo $encodedConfirm; ?>;
+                    var formattedConfirm = rawConfirm.replace(/\\n/g, '<br>');
+                    document.getElementById("confirmation").innerHTML = formattedConfirm;
+                }
 
 
                 $('.authenticNumberRadioClass').on('change', function() {
@@ -213,7 +216,7 @@
                     $('#availableCoupon').addClass('d-none');
                     $('#applyCoupon').removeClass('d-none');
                     $('#couponCode').removeClass('d-none');
-                    $("#coupon").attr('required',true);
+                    // $("#coupon").attr('required',true);
                 })
 
                 $('#applyCoupon').click(function(e){

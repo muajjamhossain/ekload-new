@@ -107,8 +107,8 @@
                       <h4>{{ Auth::user()->name }}</h4>
                       <p class="text-secondary mb-1">Active</p>
                       <p class="text-muted font-size-sm">Regular Customer</p>
-                      <button class="btn btn-primary">Follow</button>
-                      <button class="btn btn-outline-primary">Message</button>
+                      {{-- <button class="btn btn-primary">Follow</button>
+                      <button class="btn btn-outline-primary">Message</button> --}}
                     </div>
                   </div>
                 </div>
@@ -141,30 +141,22 @@
             <div class="col-md-8">
               <div class="card mb-3">
                 <div class="card-body">
+
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
+                      <h6 class="mb-0">Ekload Point</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
-                        {{ Auth::user()->name }}
+                    <div class="col-sm-9 text-danger">
+                        {{ Auth::user()->point }}
                     </div>
                   </div>
                   <hr class="p-1 m-1">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Point</h6>
+                      <h6 class="mb-0">Ekload Reward</h6>
                     </div>
                     <div class="col-sm-9 text-danger">
-                       <span class="badge bg-success">{{ Auth::user()->point }}</span>
-                    </div>
-                  </div>
-                  <hr class="p-1 m-1">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Reward</h6>
-                    </div>
-                    <div class="col-sm-9 text-danger">
-                       <span class="badge bg-info">{{ Auth::user()->reward }}</span>
+                        {{ Auth::user()->reward }}
                     </div>
                   </div>
                   <hr class="p-1 m-1">
@@ -197,10 +189,20 @@
                   <hr class="p-1 m-1">
                   <div class="row">
                     <div class="col-sm-3">
+                      <h6 class="mb-0">Rank</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        Silver <i class="fa fa-trophy pl-3" aria-hidden="true" style="color:red"></i>
+                    </div>
+                  </div>
+                  <hr class="p-1 m-1">
+                  <div class="row">
+                    <div class="col-sm-3">
                       <h6 class="mb-0">Status</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        Regular Customer ({{ Auth::user()->active_customer == 1? "Active": "inActive" }})
+                        Regular Customer ({{ Auth::user()->active_customer == 1? "Active": "in Active" }})
+
                     </div>
                   </div>
                   <hr class="p-1 m-1">
@@ -216,6 +218,7 @@
                   <div class="col-sm-12">
                       <div class="card">
                           <div class="card-body">
+                            <h6 class="text-center">আমি যাদের রেফার করেছি</h6>
                             <div class="table-responsive">
                                 <table id="alltableinfo" class="table table-bordered custom_table mb-0">
                                     <thead>

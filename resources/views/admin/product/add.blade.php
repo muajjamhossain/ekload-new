@@ -283,12 +283,12 @@
 @php
 
     $couponExist = 0;
-    if($pac->pd_check == '1'){
-        $noteData = "$basic->basic_note";
+    if(@$data->pd_check == '1'){
+        // $noteData = "$basic->basic_note";
     }
 
-    $encodedNote = json_encode($noteData);
-    $encodedConfirm = json_encode($confirmData);
+    // $encodedNote = json_encode($noteData);
+    // $encodedConfirm = json_encode($confirmData);
 @endphp
 
 @push('customScripts')

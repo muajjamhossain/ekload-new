@@ -41,8 +41,8 @@
                                 <h4>{{ Auth::user()->name }}</h4>
                                 <p class="text-secondary mb-1">Active</p>
                                 <p class="text-muted font-size-sm">Regular Customer</p>
-                                <button class="btn btn-primary">Follow</button>
-                                <button class="btn btn-outline-primary">Message</button>
+                                {{-- <button class="btn btn-primary">Follow</button>
+                                <button class="btn btn-outline-primary">Message</button> --}}
                             </div>
                         </div>
                         {{-- <hr class="my-4">

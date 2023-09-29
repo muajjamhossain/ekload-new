@@ -76,6 +76,7 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::post('/update/user-profile', 'updateProfile')->name('update.user-profile');
     Route::get('/', 'index')->name('index');
     Route::get('/about', 'about')->name('site_about');
+    Route::get('/order/history', 'orderHistory')->name('site_order_history');
     Route::get('/data/offer', 'data')->name('site_data');
     Route::get('/minute/offer', 'minute')->name('site_minute');
     Route::get('/combo/offer', 'combo')->name('site_combo');
@@ -195,7 +196,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['prefix' => 'package', 'as' => 'package.', 'controller'=> PackageController::class], function () {
         Route::get('/{operator?}', 'index')->name('');
         Route::get('/my', 'my')->name('');
-        Route::get('/add', 'add')->name('');
+        Route::get('/add/product', 'add')->name('');
         Route::get('/edit/{slug}', 'edit')->name('');
         Route::get('/view/{slug}', 'view')->name('');
         Route::post('/submit', 'insert')->name('');

@@ -113,9 +113,12 @@
                                     <a style="color: #3f4754;" class="nav-link" href="{{route('site_contact')}}">Contact</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a style="color: #3f4754;" class="nav-link" href="{{route('site_order_history')}}">History</a>
+                                </li>
+                                {{-- <li class="nav-item">
                                     <a style="color: #3f4754;" class="nav-link join-seller" href="{{route('site_contact')}}">Join
                                         Seller</a>
-                                </li>
+                                </li> --}}
                             </ul>
                             <form class="my-2 form-inline my-lg-0">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search"
