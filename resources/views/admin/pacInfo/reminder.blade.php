@@ -120,15 +120,14 @@
 
 @endsection
 
-
 @push('customScripts')
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
 <script>
-       $(document).ready(function() {
-        $(document).on("click", "#reminderId", function () {
-            var reminderId = $(this).data('id');
-            $(".modal_card #modal_id").val( reminderId );
-        });
-       });
+    //    $(document).ready(function() {
+    //     $(document).on("click", "#reminderId", function () {
+    //         var reminderId = $(this).data('id');
+    //         $(".modal_card #modal_id").val( reminderId );
+    //     });
+    //    });
 </script>
 @endpush

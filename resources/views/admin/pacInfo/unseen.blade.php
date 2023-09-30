@@ -135,11 +135,11 @@
                                                 data-target="#publishModal" data-id="{{$data->pac_id}}"><i
                                                     class="fa fa-pause text-danger fa-lg"></i></a>
                                             @endif
-                                            <a href="{{url('dashboard/package/buy/view/'.$data->pac_slug)}}"
+                                            {{-- <a href="{{url('dashboard/package/buy/view/'.$data->pac_slug)}}"
                                                 title="view"><i class="fa fa-plus-square fa-lg view_icon"></i></a>
                                             <a href="#" title="delete" id="softDelete" data-toggle="modal"
                                                 data-target="#softDelModal" data-id="{{$data->pac_id}}"><i
-                                                    class="fa fa-trash fa-lg delete_icon"></i></a>
+                                                    class="fa fa-trash fa-lg delete_icon"></i></a> --}}
                                         </td>
                                     </tr>
                                     @endforeach

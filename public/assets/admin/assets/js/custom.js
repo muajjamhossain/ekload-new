@@ -123,6 +123,11 @@ $(document).ready(function(){
 		 $(".modal_card #modal_id").val( deleteID );
 	});
 
+    $(document).on("click", "#reminderId", function () {
+        var reminderId = $(this).data('id');
+        $(".modal_card #modal_id").val( reminderId );
+    });
+
   $(document).on("click", "#publish", function () {
 		 var publishID = $(this).data('id');
 		 $(".modal_card #modal_id").val( publishID );
