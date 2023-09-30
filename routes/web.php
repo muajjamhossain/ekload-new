@@ -76,6 +76,7 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::post('/update/user-profile', 'updateProfile')->name('update.user-profile');
     Route::get('/', 'index')->name('index');
     Route::get('/about', 'about')->name('site_about');
+    Route::get('/my/reminder', 'myReminder')->name('my-reminder');
     Route::get('/order/history', 'orderHistory')->name('site_order_history');
     Route::get('/data/offer', 'data')->name('site_data');
     Route::get('/minute/offer', 'minute')->name('site_minute');

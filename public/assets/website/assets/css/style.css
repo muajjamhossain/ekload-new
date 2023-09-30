@@ -364,6 +364,33 @@ label {
 	color: #ffffff !important;
 	display: inline-block;
 }
+
+
+
+.notification {
+    /* background-color: #555; */
+    color: green;
+    text-decoration: none;
+    padding: 0px 0px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+
+  .notification:hover {
+    /* background: red; */
+    color: red;
+  }
+
+  .notification .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 1px 5px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
 /*
 ==========================================
     Slider Area Css

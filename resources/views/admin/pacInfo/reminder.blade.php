@@ -70,7 +70,7 @@
                                         <td>{{$data->pac_gateway}}</td>
                                         <td>{{date('d-M-y h-i-a',strtotime($data->created_at))}}</td>
                                         <td>
-                                              <a href="#" title="reminder" id="softDelete" data-toggle="modal" data-target="#reminderModal" data-id="{{$data->pac_id}}"> <span style="font-size: 25px; text-align: center ">📢</span>
+                                              <a href="#" title="reminder" id="reminderId" data-toggle="modal" data-target="#reminderModal" data-id="{{$data->pac_id}}"> <span style="font-size: 25px; text-align: center ">📢</span>
                                               </a>
                                           </td>
                                     </tr>
@@ -100,10 +100,10 @@
                 </div>
                 <div class="card-body modal_card">
                     Are you sure you want to Send Reminder?
-
-                      <div class="mb-3">
-                        <textarea class="form-control" name="reminder" rows="3">আপনার প্যাকেজের মেয়াদ শেষ হতে ৭ দিনের কম সময় বাকি আছে। কম টাকায় অফার পেতে এবং পূর্বের মিনিট ও ডাটা রাখতে চাইলে এখন থেকেই চোখ রাখুন Ekload.com এ। 🥰</textarea>
-                      </div>
+                    <input type="hidden" id="modal_id" name="reminderId">
+                    <div class="mb-3">
+                    <textarea class="form-control" name="reminder" rows="3">আপনার প্যাকেজের মেয়াদ শেষ হতে ৭ দিনের কম সময় বাকি আছে। কম টাকায় অফার পেতে এবং পূর্বের মিনিট ও ডাটা রাখতে চাইলে এখন থেকেই চোখ রাখুন Ekload.com এ। 🥰</textarea>
+                    </div>
                 </div>
                 <div class="card-footer text-right">
                     <button type="submit" class="btn btn-sm btn-dark waves-effect">Confirm</button>
@@ -124,12 +124,11 @@
 @push('customScripts')
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
 <script>
-        function copyToClipboard(element) {
-        var $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val($(element).text()).select();
-        document.execCommand("copy");
-        $temp.remove();
-        }
+       $(document).ready(function() {
+        $(document).on("click", "#reminderId", function () {
+            var reminderId = $(this).data('id');
+            $(".modal_card #modal_id").val( reminderId );
+        });
+       });
 </script>
 @endpush

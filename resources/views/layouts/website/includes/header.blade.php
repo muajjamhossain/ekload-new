@@ -58,6 +58,19 @@
                                 height="50px">
                         </a>
 
+
+                        @php
+                            $reminder = 0;
+                            $reminder = App\Models\Reminder::where('status',1)->where('user_id', @Auth::user()->id)->count();
+                        @endphp
+
+                        <a href="{{ route('my-reminder') }}" class="notification">
+                            <span><i class="fa fa-bell" aria-hidden="true"></i></span>
+                            @if($reminder != 0)
+                                <span class="badge">{{ $reminder }}</span>
+                            @endif
+                        </a>
+
                         <ul class="navbar-nav d-lg-none">
                             <li class="nav-item dropdown">
                                 <a style="color: #3f4754;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"

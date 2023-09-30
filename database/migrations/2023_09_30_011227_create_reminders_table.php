@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('reminder');
             $table->integer('user_id');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
