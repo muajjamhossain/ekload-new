@@ -110,29 +110,29 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="gp-tab" data-toggle="tab" href="#gp" role="tab"
-                                aria-controls="gp" aria-selected="true"><img height="18"
+                        <li class="nav-item ">
+                            <a class="nav-link active p-1" id="gp-tab" data-toggle="tab" href="#gp" role="tab"
+                                aria-controls="gp" aria-selected="true"><img height="35"
                                     src="{{ asset('assets/website') }}/assets/img/operator/gp.jpg" alt=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="bl-tab" data-toggle="tab" href="#bl" role="tab" aria-controls="bl"
-                                aria-selected="false"><img height="18"
+                            <a class="nav-link p-1" id="bl-tab" data-toggle="tab" href="#bl" role="tab" aria-controls="bl"
+                                aria-selected="false"><img height="35"
                                     src="{{ asset('assets/website') }}/assets/img/operator/bl.png" alt=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="airtel-tab" data-toggle="tab" href="#airtel" role="tab"
-                                aria-controls="airtel" aria-selected="false"><img height="18"
+                            <a class="nav-link p-1" id="airtel-tab" data-toggle="tab" href="#airtel" role="tab"
+                                aria-controls="airtel" aria-selected="false"><img height="35"
                                     src="{{ asset('assets/website') }}/assets/img/operator/airtel.png" alt=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="robi-tab" data-toggle="tab" href="#robi" role="tab" aria-controls="robi"
-                                aria-selected="false"><img height="18"
+                            <a class="nav-link p-1" id="robi-tab" data-toggle="tab" href="#robi" role="tab" aria-controls="robi"
+                                aria-selected="false"><img height="35"
                                     src="{{ asset('assets/website') }}/assets/img/operator/robi.jpg" alt=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="telitok-tab" data-toggle="tab" href="#telitok" role="tab"
-                                aria-controls="telitok" aria-selected="false"><img height="18"
+                            <a class="nav-link p-1" id="telitok-tab" data-toggle="tab" href="#telitok" role="tab"
+                                aria-controls="telitok" aria-selected="false"><img height="35"
                                     src="{{ asset('assets/website') }}/assets/img/operator/teletalk.png" alt=""></a>
                         </li>
                     </ul>
@@ -140,7 +140,7 @@
                         <div class="tab-pane fade show active" id="gp" role="tabpanel" aria-labelledby="gp-tab">
                             <div class="row">
                                 @foreach($GrameenPhone as $gpData)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                                         <div class="mt-4 card">
                                             <img height="200" class="card-img-top operator-img"
                                                 src="{{ $gpData->pd_image? asset('uploads/package/'.$gpData->pd_image) : asset('assets/website/assets/img/operator/gp-1.jpeg') }}"
@@ -166,7 +166,7 @@
                         <div class="tab-pane fade" id="bl" role="tabpanel" aria-labelledby="bl-tab">
                             <div class="row">
                                 @foreach($Banglalink as $blData)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                                         <div class="mt-4 card">
                                             <img height="200" class="card-img-top operator-img"
                                                 src="{{ $blData->pd_image? asset('uploads/package/'.$blData->pd_image) : asset('assets/website/assets/img/operator/bl-2.gif') }}"
@@ -192,7 +192,7 @@
                         <div class="tab-pane fade" id="airtel" role="tabpanel" aria-labelledby="airtel-tab">
                             <div class="row">
                                 @foreach($Airtel as $atData)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                                         <div class="mt-4 card">
                                             <img height="200" class="card-img-top operator-img"
                                                 src="{{ $atData->pd_image? asset('uploads/package/'.$atData->pd_image) : asset('assets/website/assets/img/operator/airtel-3.png') }}"
@@ -217,7 +217,7 @@
                         <div class="tab-pane fade" id="robi" role="tabpanel" aria-labelledby="robi-tab">
                             <div class="row">
                                 @foreach($Robi as $robiData)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                                         <div class="mt-4 card">
                                             <img height="200" class="card-img-top operator-img"
                                                 src="{{ $robiData->pd_image? asset('uploads/package/'.$robiData->pd_image) : asset('assets/website/assets/img/operator/robi-5.png') }}"
@@ -241,7 +241,7 @@
                         <div class="tab-pane fade" id="telitok" role="tabpanel" aria-labelledby="telitok-tab">
                             <div class="row">
                                 @foreach($Talitalk as $telData)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                                         <div class="mt-4 card">
                                             <img height="200" class="card-img-top operator-img"
                                                 src="{{ $telData->pd_image? asset('uploads/package/'.$telData->pd_image) : asset('assets/website/assets/img/operator/telitok-6.jpeg') }}"
@@ -365,7 +365,7 @@
                         <div class="tab-pane fade show active" id="combo" role="tabpanel" aria-labelledby="combo-tab">
                             <div class="row">
                                 @foreach($combo_pac as $data)
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                     <div class="mt-4 card">
                                         <img height="200" class="card-img-top operator-img"
                                             src="{{asset('uploads/package/'.$data->pd_image)}}" alt="">
@@ -390,7 +390,7 @@
                         <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
                             <div class="row">
                                 @foreach($data_pac as $data)
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                     <div class="mt-4 card">
                                         <img height="200" class="card-img-top operator-img" src="{{asset('uploads/package/'.$data->pd_image)}}" alt="">
                                         <ul class="pt-3 pb-3 list-group list-group-flush border-top">
@@ -414,7 +414,7 @@
                         <div class="tab-pane fade" id="minute" role="tabpanel" aria-labelledby="minute-tab">
                             <div class="row">
                                 @foreach($minute_pac as $data)
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                         <div class="mt-4 card">
                                             <img height="200" class="card-img-top operator-img" src="{{asset('uploads/package/'.$data->pd_image)}}" alt="">
                                             <ul class="pt-3 pb-3 list-group list-group-flush border-top">

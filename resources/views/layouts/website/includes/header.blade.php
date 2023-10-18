@@ -125,9 +125,12 @@
                                 <li class="nav-item">
                                     <a style="color: #3f4754;" class="nav-link" href="{{route('site_contact')}}">Contact</a>
                                 </li>
+                                @auth
+
                                 <li class="nav-item">
                                     <a style="color: #3f4754;" class="nav-link" href="{{route('site_order_history')}}">History</a>
                                 </li>
+                                @endauth
                                 {{-- <li class="nav-item">
                                     <a style="color: #3f4754;" class="nav-link join-seller" href="{{route('site_contact')}}">Join
                                         Seller</a>

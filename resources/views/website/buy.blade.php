@@ -65,14 +65,14 @@
                                                         <label class="form-check-label" for="authenticNumberRadio">{{ Auth::user()->phone }} </label>
                                                     </div>
                                                     <div class="text-left form-check">
-                                                        <input class="form-check-input authenticNumberRadioClass" type="radio" name="numberOfLoad" value="authenticAnothreNumberRadio" id="authenticAnothreNumberRadio" @required(true)>
+                                                        <input class="form-check-input authenticNumberRadioClass" type="radio" name="numberOfLoad" value="authenticAnothreNumberRadio" id="authenticAnothreNumberRadio">
                                                         <label class="form-check-label" for="authenticAnothreNumberRadio">অন্য কোনো নম্বর </label>
                                                     </div>
                                                 </div>
                                                 <div class="col"></div>
                                             </div>
                                             <span class="check-top-input d-none" id="authenticAnothreNumberField">
-                                                <input type="number" name="authenticAnothreNumberField" placeholder="মোবাইল নাম্বার">
+                                                <input type="text" name="authenticAnothreNumberField"  maxlength="11" minlength="11" placeholder="01*********" id="authenticAnothreNumberFieldRequired">
                                             </span>
                                         @endif
 
@@ -129,7 +129,7 @@
                                     </div>
                                     <div class="mt-4 text-center team-middle-content">
                                         <span class="check-top-input d-none" id="couponCode">
-                                            <input type="text" class="text-center" name="coupon" id="coupon" placeholder="নাম্বার">
+                                            <input type="text" class="text-center" name="coupon" id="coupon" placeholder="কোডটি লিখুন">
                                             <input type="hidden" name="paybleAmount" value="" id="paybleAmount">
                                         </span>
                                         <button type="submit" id="applyCoupon" class="btn-sm btn-success d-none">কুপন জমা দিন</button>
@@ -157,7 +157,7 @@
                     <div class="mt-4 text-center col-md-12">
                         <div class="term-btn">
                             {{-- <a href="#">Next</a> --}}
-                            <input type="checkbox" id="checkme"/> সম্মত আছি <br/>
+                            <input type="checkbox" id="checkme" value="1"/> সম্মত আছি <br/>
                             <button type="submit" class="btn btn-md btn-danger" id="sendNewSms" >পে করুন</button>
                         </div>
                     </div>
@@ -180,6 +180,29 @@
 
     @push('websiteCustomScripts')
         <script>
+
+            $(document).ready(function() {
+                // Check if the browser supports the history API
+                if (window.history && window.history.pushState) {
+                    // Add a popstate event listener to handle back button click
+                    window.addEventListener('popstate', function(event) {
+                        // You can trigger your desired function or event here
+                        alert('Back button was pressed!');
+                        // Your code to handle the back button click event
+                    });
+
+                    // Push a new state to the history when the page loads
+                    history.pushState({ page: 1 }, "", "");
+
+                    // Trigger the popstate event when the back button is clicked
+                    $(window).on('popstate', function() {
+                        window.history.back();
+                    });
+                }
+            });
+
+
+
             $(document).ready(function() {
 
                 var checker = document.getElementById('checkme');
@@ -190,11 +213,21 @@
                 checker.onchange = function() {
                     // document.getElementById('sendNewSms').removeAttribute('disabled');
                     sendbtn.disabled = !this.checked;
-                    sendbtn.style.cursor = 'pointer';
+                    // sendbtn.style.cursor = 'pointer';
+
                 };
+
+                if($('#checkme').is(':checked')){
+                        $("#sendNewSms").attr("disabled", false);
+                        sendbtn.style.cursor = 'auto';
+                }else{
+                        $("#sendNewSms").attr("disabled", true);
+                        sendbtn.style.cursor = 'wait';
+                }
 
 
                 var pdCheck = <?php echo $pac->pd_check; ?>;
+                // var pdCheck = '{{ $pac->pd_check }}';
 
                 if(pdCheck == 1){
                     var rawNote = <?php echo $encodedNote; ?>;
@@ -207,10 +240,28 @@
                 }
 
 
-                $('.authenticNumberRadioClass').on('change', function() {
-                    $('#authenticAnothreNumberField').toggleClass('d-none');
+                // $('.authenticNumberRadioClass').on('change', function() {
+                //     $('#authenticAnothreNumberField').toggleClass('d-none');
+                // });
+
+
+                $('.authenticNumberRadioClass').on('click',function() {
+                    if($('#authenticAnothreNumberRadio').is(':checked')){
+                        $('#authenticAnothreNumberFieldRequired').prop('required',true);
+                        $('#authenticAnothreNumberField').removeClass('d-none');
+                    }else{
+                        $('#authenticAnothreNumberFieldRequired').prop('required',false);
+                        $('#authenticAnothreNumberField').addClass('d-none');
+                    }
                 });
 
+
+
+                // if($('#authenticAnothreNumberRadio').is(':checked')){
+                //         alert('ok');
+                // }else{
+                //         alert('error');
+                // }
 
                 $('#availableCoupon').click(function() {
                     $('#availableCoupon').addClass('d-none');

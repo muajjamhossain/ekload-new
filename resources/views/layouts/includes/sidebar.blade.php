@@ -4,7 +4,7 @@
         <li><a href="{{url('dashboard/package/buy/unseen')}}" class="waves-effect"><i class="md md-contacts"></i><span>Unseen Buy Pac msg</span></a></li>
         <li><a href="{{url('dashboard/package/buy/all')}}" class="waves-effect"><i class="md md-contacts"></i><span>All Buy Pac msg </span></a></li>
         <li><a href="{{url('dashboard/package')}}" class="waves-effect"><i class="md md-local-attraction"></i><span>Package</span></a></li>
-        <li><a href="{{url('dashboard/package/add')}}" class="waves-effect"><i class="md md-local-attraction"></i><span>Add Package</span></a></li>
+        <li><a href="{{url('dashboard/package/add/product')}}" class="waves-effect"><i class="md md-local-attraction"></i><span>Add Package</span></a></li>
         <li><a href="{{url('dashboard/package/buy/reminder')}}" class="waves-effect"><i class="md md-contacts"></i><span>Reminder</span></a></li>
 
         <li><a href="{{url('dashboard/contactus/unseen')}}" class="waves-effect"><i class="md md-contacts"></i><span>Unseen Con Msg </span></a></li>

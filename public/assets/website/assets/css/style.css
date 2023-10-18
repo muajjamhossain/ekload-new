@@ -403,6 +403,7 @@ label {
     .single-slider{
         background-size: fill;
         height: 400px !important;
+        width: fit-content;
     }
 
     .slider-title h2{
