@@ -198,4 +198,4 @@ Youtube Channel: [https://youtube.com/LearnwithSumit](https://youtube.com/Learnw
 [instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&color=555&logoColor=white
 [instagram-url]: https://instagram.com/learnwithsumit
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/company/learnwithsumit
+[linkedin-url]: https://www.linkedin.com/in/muajjam-hossain-imu/
