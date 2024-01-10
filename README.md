@@ -6,7 +6,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/learnwithsumit/nodejs-basic-bangla">
+  <a href="https://github.com/muajjamhossain">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
