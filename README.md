@@ -7,7 +7,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/muajjamhossain">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://ekload.com/assets/website/assets/img/logo/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">সহজ বাংলায় Node.js টিউটোরিয়াল সিরিজ</h3>
